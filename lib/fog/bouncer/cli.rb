@@ -77,5 +77,4 @@ module Fog
   end
 end
 
-Scrolls::Log.start(STDOUT)
 Fog::Bouncer.instrument_with(Fog::Bouncer::CLI::Logger.method(:log))

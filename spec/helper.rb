@@ -8,7 +8,7 @@ ENV['AWS_ACCOUNT_ID'] ||= "1234567890"
 require "fog/bouncer"
 require "scrolls"
 
-Scrolls::Log.start(File.open(File.dirname(__FILE__) + '/../logs/test.log', 'w'))
+Scrolls::Log.stream = File.open(File.dirname(__FILE__) + '/../logs/test.log', 'w')
 
 module TestLogger
   def self.log(data, &blk)
