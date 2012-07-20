@@ -20,7 +20,7 @@ Gem::Specification.new do |gem|
   gem.add_dependency "ipaddress", "~> 0.8.0"
   gem.add_dependency "jruby-openssl", "~> 0.7.6" if RUBY_PLATFORM == "java"
   gem.add_dependency "rake", "~> 0.9.0"
-  gem.add_dependency "scrolls", "~> 0.1.0"
+  gem.add_dependency "scrolls", "~> 0.2.1"
 
   gem.add_development_dependency "minitest"
 end
