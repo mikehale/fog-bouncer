@@ -22,7 +22,7 @@ def load_security(security)
   Fog::Bouncer.load File.dirname(__FILE__) + "/support/security/#{security}.rb"
 end
 
-Fog.mock! unless ENV['FOG_REAL']
+Fog.mock! unless ENV['FOG_REAL'] && ["1", "true"].include?(ENV['FOG_REAL'])
 
 MiniTest::Unit.after_tests do
   Fog::Bouncer.doorlists.each do |name, doorlist|
