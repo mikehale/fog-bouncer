@@ -1,4 +1,12 @@
-env: NO_SIMPLECOV=true
+env:
+  global:
+    - NO_SIMPLECOV=true
+    - secure: "hBuPzm8oDPYwDzutnwwOkc2cwMNPHuCcTqw9ZHnSJlPyKAIGLBvDca+Nqu/v\niqVS+H8p2vn8/Dj+Y4+OouyL83ibH5PLsMLGqFYQqJ2glj/8qozoq0EB1C5x\n2k7/EtK1fft4oJhyWvEOd92q5/kDYAwRsQYZqBn7E9Yu7D4zfnQ="
+    - secure: "UXDtqnEW0BUtATes/xYIHFFXwGsIJbxMs4dNb6yC2KplHUSenx/RhgVMnRhF\nvSBCFuTPXHHHQKg8SgrxRJe3M841sKZxfSkRJ2PYMoW1qNEhF86EMxvrMDfg\nQ6PM5SDRk3u1PiGNdVlgeRVKFKOTnBaySTGDRVBnTZmK/iYHv5A="
+    - secure: "jzm0Mn03H2wVsJbk+JxbZ0y2ptrMXKdfAs243W9Bd2PVg/no+CFxw7CDlvcT\n5IEB/3CFPTnbbFj0BMGa5hZFa6eSG4V4vKPRe5M10dx6807nho0G1xWHIj5b\nOok5u1YvDHuaZ6aGwo/oprMBRKh68mhgSYS/KfuFEdj689QVae4="
+  matrix:
+    - FOG_REAL=false
+    - FOG_REAL=true
 
 language: ruby
 
