@@ -20,8 +20,18 @@ module Fog
 
       class Diff
         class EC2
+          attr_reader :doorlist
+
           def self.diff(doorlist)
-            doorlist.groups.each do |group|
+            new(doorlist).diff
+          end
+
+          def initialize(doorlist)
+            @doorlist = doorlist
+          end
+
+          def diff
+            @doorlist.groups.each do |group|
               if group.local? && !group.remote?
                 puts "ec2-create-group #{group.name} -d '#{group.description}'"
               end
@@ -29,29 +39,9 @@ module Fog
               group.sources.each do |source|
                 source.protocols.each do |protocol|
                   if protocol.local? && !protocol.remote?
-                    authorize_cmd = "ec2-authorize #{protocol.group.name} -P #{protocol.type}"
-                    if protocol.type == "icmp"
-                      authorize_cmd << " -t #{protocol.from}:#{protocol.to}"
-                    else
-                      authorize_cmd << " -p #{protocol.from}-#{protocol.to}"
-                    end
-
-                    if source.is_a?(Fog::Bouncer::Sources::CIDR)
-                      authorize_cmd << " -s #{source.range}"
-                    else
-                      authorize_cmd << " -u #{source.user_id} -o #{source.name}"
-                    end
-
-                    puts authorize_cmd
+                    puts command(protocol, :authorize)
                   elsif !protocol.local? && protocol.remote?
-                    revoke_cmd = "ec2-revoke #{protocol.group.name} -P #{protocol.type}"
-                    if protocol.type == "icmp"
-                      revoke_cmd << " -t #{protocol.from}:#{protocol.to}"
-                    else
-                      revoke_cmd << " -p #{protocol.from}-#{protocol.to}"
-                    end
-
-                    puts revoke_cmd
+                    puts command(protocol, :revoke)
                   end
                 end
               end
@@ -60,6 +50,27 @@ module Fog
                 puts "ec2-delete-group #{group.name}"
               end
             end
+          end
+
+          private
+
+          def command(protocol, action)
+            cmd = "ec2-#{action} #{protocol.group.name} -P #{protocol.type}"
+            source = protocol.source
+
+            if protocol.type == "icmp"
+              cmd << " -t #{protocol.from}:#{protocol.to}"
+            else
+              cmd << " -p #{protocol.from}-#{protocol.to}"
+            end
+
+            if source.is_a?(Fog::Bouncer::Sources::CIDR)
+              cmd << " -s #{source.range}"
+            else
+              cmd << " -u #{source.user_id} -o #{source.name}"
+            end
+
+            cmd
           end
         end
 
