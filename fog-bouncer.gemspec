@@ -16,6 +16,7 @@ Gem::Specification.new do |gem|
   gem.version       = Fog::Bouncer::VERSION
 
   gem.add_dependency "clamp", "~> 0.3.0"
+  gem.add_dependency "clarence", "1987.0.0"
   gem.add_dependency "fog", "~> 1.2"
   gem.add_dependency "ipaddress", "~> 0.8.0"
   gem.add_dependency "jruby-openssl", "~> 0.7.6" if RUBY_PLATFORM == "java"

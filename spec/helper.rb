@@ -1,3 +1,8 @@
+if ENV['TRAVIS_PULL_REQUEST'] && ["1", "true"].include?(ENV['TRAVIS_PULL_REQUEST']) && ENV['FOG_REAL'] && ["1", "true"].include?(ENV['FOG_REAL'])
+  require "clarence"
+  Bitches.leave
+end
+
 require "simplecov" unless ENV['NO_SIMPLECOV']
 require 'minitest/autorun'
 
