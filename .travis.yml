@@ -32,6 +32,10 @@ matrix:
         - secure: "UXDtqnEW0BUtATes/xYIHFFXwGsIJbxMs4dNb6yC2KplHUSenx/RhgVMnRhF\nvSBCFuTPXHHHQKg8SgrxRJe3M841sKZxfSkRJ2PYMoW1qNEhF86EMxvrMDfg\nQ6PM5SDRk3u1PiGNdVlgeRVKFKOTnBaySTGDRVBnTZmK/iYHv5A="
         - secure: "jzm0Mn03H2wVsJbk+JxbZ0y2ptrMXKdfAs243W9Bd2PVg/no+CFxw7CDlvcT\n5IEB/3CFPTnbbFj0BMGa5hZFa6eSG4V4vKPRe5M10dx6807nho0G1xWHIj5b\nOok5u1YvDHuaZ6aGwo/oprMBRKh68mhgSYS/KfuFEdj689QVae4="
 
+branches:
+  only:
+    - master
+
 language: ruby
 
 rvm:
