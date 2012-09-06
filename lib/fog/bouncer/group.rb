@@ -88,11 +88,10 @@ module Fog
               unless Fog::Bouncer.pretending?
                 remote.destroy
                 @remote = nil
-                @security.groups.delete_if { |g| g.name == name }
               end
             end
           else
-            log(destroy: false, group_name: name)
+            log(destroy: false)
           end
         end
       end

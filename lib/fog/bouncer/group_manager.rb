@@ -23,10 +23,12 @@ module Fog
 
       def clear
         @security.groups.each do |group|
+          log clear: true, revoke: true, group_name: group.name
           group.revoke
         end
 
         @security.groups.each do |group|
+          log clear: true, destroy: true, group_name: group.name
           begin
             group.destroy
           rescue Fog::Compute::AWS::Error => exception
