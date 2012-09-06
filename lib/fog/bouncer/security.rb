@@ -60,6 +60,13 @@ module Fog
         GroupManager.new(self).clear
       end
 
+      def clear_remote!
+        log clear_remote!: true
+        until groups.select { |g| g.remote? }.size == 1
+          clear_remote
+        end
+      end
+
       private
 
       def account(name, account_id)
@@ -87,6 +94,14 @@ module Fog
         end
 
         group
+      end
+
+      def self.log(data, &block)
+        Fog::Bouncer.log({ security: true }.merge(data), &block)
+      end
+
+      def log(data, &block)
+        self.class.log({ name: name }.merge(data), &block)
       end
     end
   end

@@ -82,4 +82,17 @@ describe Fog::Bouncer::Security do
       @doorlist.clear_remote
     end
   end
+
+  describe "#clear_remote!" do
+    before do
+      @doorlist.sync
+      @doorlist.clear_remote!
+      @fog.security_groups.reload
+    end
+
+    it "removes all groups except default" do
+      @fog.security_groups.size.must_equal 1
+      @fog.security_groups.first.name.must_equal "default"
+    end
+  end
 end
