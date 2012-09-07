@@ -24,43 +24,12 @@ module Fog
         end
       end
 
-      def extra_remote_sources
-        sources.select { |source| !source.local? && source.remote? }
-      end
-
-      def local?
-        !!local
-      end
-
-      def missing_remote_sources
-        sources.select { |source| source.local? && !source.remote? }
-      end
-
-      def remote?
-        !remote.nil?
-      end
-
-      def sources
-        @sources ||= []
-      end
-
       def add_source(source, &block)
         if existing = sources.find { |s| s.match(source) }
           existing.instance_eval(&block)
         else
           sources << Sources.for(source, self, &block)
         end
-      end
-
-      def sync
-        log(sync: true) do
-          create_missing_remote
-          synchronize_sources
-        end
-      end
-
-      def use(name)
-        @using << security.definitions(name)
       end
 
       def create_missing_remote
@@ -71,12 +40,6 @@ module Fog
               @remote.reload
             end
           end
-        end
-      end
-
-      def synchronize_sources
-        log(synchronize_sources: true) do
-          SourceManager.new(self).synchronize
         end
       end
 
@@ -96,6 +59,22 @@ module Fog
         end
       end
 
+      def extra_remote_sources
+        sources.select { |source| !source.local? && source.remote? }
+      end
+
+      def local?
+        !!local
+      end
+
+      def missing_remote_sources
+        sources.select { |source| source.local? && !source.remote? }
+      end
+
+      def remote?
+        !remote.nil?
+      end
+
       def revoke
         permissions = sources.map do |source|
           source.protocols.select { |p| p.remote? }
@@ -110,6 +89,21 @@ module Fog
             end
           end
         end
+      end
+
+      def sources
+        @sources ||= []
+      end
+
+      def sync
+        log(sync: true) do
+          create_missing_remote
+          synchronize_sources
+        end
+      end
+
+      def use(name)
+        @using << security.definitions(name)
       end
 
       def ==(other)
@@ -135,6 +129,12 @@ module Fog
 
       def source(source, &block)
         add_source(source, &block)
+      end
+
+      def synchronize_sources
+        log(synchronize_sources: true) do
+          SourceManager.new(self).synchronize
+        end
       end
     end
   end
