@@ -29,6 +29,15 @@ describe Fog::Bouncer do
       end
     end
 
+    describe "#exceeded?" do
+      it "should check if the group exceeds the AWS rules limit" do
+        @group.exceeded?.must_equal false
+        source = @group.sources.first
+        0.upto(100) { |i| p = source.add_protocol(:tcp, i + 1000); p.local = true }
+        @group.exceeded?.must_equal true
+      end
+    end
+
     describe "#extras" do
       before do
         Fog::Bouncer::IPPermissions.to(@group, [{ "ipProtocol" => "tcp", "fromPort" => 20, "toPort" => 20, "ipRanges" => [{ "cidrIp" => "2.2.2.2/2" }], "groups" => [] }])

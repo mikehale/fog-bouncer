@@ -59,6 +59,19 @@ module Fog
         end
       end
 
+      # Public: Check if it has exceeded the 100 rules limit per group on AWS,
+      #         http://docs.amazonwebservices.com/AWSEC2/latest/UserGuide/using-network-security.html.
+      #
+      # Examples
+      #
+      #   exceeded?
+      #   # => false
+      #
+      # Returns a Boolean
+      def exceeded?
+        local_permissions.size > 100
+      end
+
       def extra_remote_sources
         sources.select { |source| !source.local? && source.remote? }
       end
@@ -127,12 +140,19 @@ module Fog
         end
       end
 
+      def local_permissions
+        permissions = sources.map do |source|
+          source.protocols.select { |p| p.local? }
+        end.flatten.compact
+      end
+
       def source(source, &block)
         add_source(source, &block)
       end
 
       def synchronize_sources
         log(synchronize_sources: true) do
+          log(synchronize_sources: true, exceeded_aws_limit: true) if exceeded?
           SourceManager.new(self).synchronize
         end
       end
