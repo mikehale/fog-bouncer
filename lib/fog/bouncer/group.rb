@@ -152,7 +152,7 @@ module Fog
 
       def synchronize_sources
         log(synchronize_sources: true) do
-          log(synchronize_sources: true, exceeded_aws_limit: true) if exceeded?
+          log(exceeded_aws_limit: true) if exceeded?
           SourceManager.new(self).synchronize
         end
       end
