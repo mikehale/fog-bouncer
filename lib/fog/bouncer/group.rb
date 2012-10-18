@@ -24,43 +24,12 @@ module Fog
         end
       end
 
-      def extra_remote_sources
-        sources.select { |source| !source.local? && source.remote? }
-      end
-
-      def local?
-        !!local
-      end
-
-      def missing_remote_sources
-        sources.select { |source| source.local? && !source.remote? }
-      end
-
-      def remote?
-        !remote.nil?
-      end
-
-      def sources
-        @sources ||= []
-      end
-
       def add_source(source, &block)
         if existing = sources.find { |s| s.match(source) }
           existing.instance_eval(&block)
         else
           sources << Sources.for(source, self, &block)
         end
-      end
-
-      def sync
-        log(sync: true) do
-          create_missing_remote
-          synchronize_sources
-        end
-      end
-
-      def use(name)
-        @using << security.definitions(name)
       end
 
       def create_missing_remote
@@ -71,12 +40,6 @@ module Fog
               @remote.reload
             end
           end
-        end
-      end
-
-      def synchronize_sources
-        log(synchronize_sources: true) do
-          SourceManager.new(self).synchronize
         end
       end
 
@@ -96,6 +59,35 @@ module Fog
         end
       end
 
+      # Public: Check if it has exceeded the 100 rules limit per group on AWS,
+      #         http://docs.amazonwebservices.com/AWSEC2/latest/UserGuide/using-network-security.html.
+      #
+      # Examples
+      #
+      #   exceeded?
+      #   # => false
+      #
+      # Returns a Boolean
+      def exceeded?
+        local_permissions.size > 100
+      end
+
+      def extra_remote_sources
+        sources.select { |source| !source.local? && source.remote? }
+      end
+
+      def local?
+        !!local
+      end
+
+      def missing_remote_sources
+        sources.select { |source| source.local? && !source.remote? }
+      end
+
+      def remote?
+        !remote.nil?
+      end
+
       def revoke
         permissions = sources.map do |source|
           source.protocols.select { |p| p.remote? }
@@ -110,6 +102,21 @@ module Fog
             end
           end
         end
+      end
+
+      def sources
+        @sources ||= []
+      end
+
+      def sync
+        log(sync: true) do
+          create_missing_remote
+          synchronize_sources
+        end
+      end
+
+      def use(name)
+        @using << security.definitions(name)
       end
 
       def ==(other)
@@ -133,8 +140,22 @@ module Fog
         end
       end
 
+      def local_permissions
+        permissions = sources.map do |source|
+          source.protocols.select { |p| p.local? }
+        end.flatten.compact
+      end
+
       def source(source, &block)
         add_source(source, &block)
+      end
+
+      def synchronize_sources
+        log(synchronize_sources: true) do
+          log(rules_limit: 100, rules: local_permissions.size)
+          log(exceeded_aws_limit: true) if exceeded?
+          SourceManager.new(self).synchronize
+        end
       end
     end
   end
