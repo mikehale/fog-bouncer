@@ -49,6 +49,7 @@ module Fog
       end
 
       def sync
+        log(group_limit: 500, groups: groups.size)
         GroupManager.new(self).synchronize
       end
 

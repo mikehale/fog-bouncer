@@ -152,6 +152,7 @@ module Fog
 
       def synchronize_sources
         log(synchronize_sources: true) do
+          log(rules_limit: 100, rules: local_permissions.size)
           log(exceeded_aws_limit: true) if exceeded?
           SourceManager.new(self).synchronize
         end
