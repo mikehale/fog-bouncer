@@ -95,7 +95,7 @@ module Fog
 
         if remote? && permissions.any?
           log(revoke: true) do
-            remote.connection.revoke_security_group_ingress(name, "IpPermissions" => IPPermissions.from(permissions)) unless Fog::Bouncer.pretending?
+            remote.service.revoke_security_group_ingress(name, "IpPermissions" => IPPermissions.from(permissions)) unless Fog::Bouncer.pretending?
             permissions.each do |protocol|
               log({revoked: true}.merge(protocol.to_log))
               protocol.source.protocols.delete_if { |p| p == protocol } unless Fog::Bouncer.pretending?

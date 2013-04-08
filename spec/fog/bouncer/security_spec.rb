@@ -16,7 +16,7 @@ describe Fog::Bouncer::Security do
     before do
       Fog::Bouncer.pretend!
       @groups = @fog.security_groups.all
-      @fog.security_groups.get('default').connection.authorize_security_group_ingress('default', "IpPermissions" => [{"Groups" => [], "IpRanges" => [{"CidrIp" => "0.0.0.0/0"}], "IpProtocol" => "icmp", "FromPort" => "-1", "ToPort" => "-1"}])
+      @fog.security_groups.get('default').service.authorize_security_group_ingress('default', "IpPermissions" => [{"Groups" => [], "IpRanges" => [{"CidrIp" => "0.0.0.0/0"}], "IpProtocol" => "icmp", "FromPort" => "-1", "ToPort" => "-1"}])
       @doorlist.sync
     end
 
