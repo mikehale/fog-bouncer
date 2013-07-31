@@ -32,7 +32,7 @@ module Fog
           begin
             group.destroy
           rescue Fog::Compute::AWS::Error => exception
-            unless exception.message =~ /InvalidGroup.InUse/
+            unless exception.message =~ /InUse/
               raise
             end
             log group_in_use: true, group_name: group.name
@@ -56,7 +56,7 @@ module Fog
             begin
               group.destroy
             rescue Fog::Compute::AWS::Error => exception
-              unless exception.message =~ /InvalidGroup.InUse/
+              unless exception.message =~ /InUse/
                 raise
               end
               log group_in_use: true, group_name: group.name
