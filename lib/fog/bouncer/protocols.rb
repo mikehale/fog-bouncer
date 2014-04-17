@@ -72,7 +72,7 @@ module Fog
       class ICMP < Protocol
         ICMP_MAPPING = {
           all: -1,
-          ping: 8..0
+          ping: 0..8
         }
 
         ICMP_TYPE_RANGE = (-1..255)

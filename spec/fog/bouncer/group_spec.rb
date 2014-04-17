@@ -21,7 +21,7 @@ describe Fog::Bouncer do
 
     describe "use" do
       it "should include any source definition specified" do
-        @group.sources.find { |s| s.source == "0.0.0.0/0" && s.protocols.find { |p| p.type == "icmp" && p.from == 8 && p.to == 0 } }.wont_be_nil
+        @group.sources.find { |s| s.source == "0.0.0.0/0" && s.protocols.find { |p| p.type == "icmp" && p.from == 0 && p.to == 8 } }.wont_be_nil
       end
 
       it "should not create duplicate sources" do
