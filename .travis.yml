@@ -17,10 +17,6 @@ matrix:
     env:
     - FOG_REAL=true
     - NO_SIMPLECOV=true
-  - rvm: rbx-19mode
-    env:
-    - FOG_REAL=true
-    - NO_SIMPLECOV=true
 branches:
   only:
   - master
@@ -31,5 +27,4 @@ rvm:
 - 1.9.3
 - 2.1.1
 - jruby-19mode
-- rbx-19mode
 script: bundle exec rake test --trace
