@@ -25,6 +25,7 @@ branches:
   only:
   - master
 language: ruby
+cache: bundler
 rvm:
 - 1.9.2
 - 1.9.3
