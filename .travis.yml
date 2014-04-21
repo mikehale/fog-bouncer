@@ -1,9 +1,9 @@
 env:
   global:
   - NO_SIMPLECOV=true
-  - secure: "RgUUFWkKaUmLSBIjIXO0viwnubXmaf/FGYHYyu6+ZaRZff/iohReMiRRA7XHM1X+skwmSwqddOsbjb1x8e+jBIb7b3PH2MnEn9dfVC1B9mUZGTsgGFqDOfR5m7wrpXnXUfmYfko6/AE9DkXK1QFtCJOqRMr7wQGLlM1KUmAKTak="
-  - secure: "liGQBsU8ZwPQXuVOreTHVE3ppBHmu2HYxOYimQ3MsTmutferkgHcTO0x3uFrY/sKPbzpiiy8H0NpDKAjawwEkok8GWtdWs6+x7NkQ4pRdivAunlGPzKtYEx7rl8unhnEboXexrdxwkrdkLAh2G9bK9DN2n93qf+Y5QuKI67xwmg="
-  - secure: "oZHs8YJcoKWm+qSy34pzPK/vIJa091cTqLzJEw98XawgTmtsEpwkEwuLu9ZWxRPmc3TgxAlxrMOZn8ySZXVMmmHt3XnCIZJA6Ujy8VhOQ8KLaO5b/b9sOPcWkjV0Q9+orC8oTpA3SLIu/FktR0WGcrW7R54HckXMHdZVqakaRdM="
+  - secure: AKXowVmeuyMFzPZMoDvYF76/E1L9mbNxQ4NJXZJ2uwCOeI1Zz8t4zN9t+NuT5pq5oEJVzSiVEYxapFIqBcQ5oy6xoQs4XA2wTI/n0qx9pySjowG/vLJ12ZTEBQGZ5ppOmMpImvDvG+2gf9/P7h6fPGGChqdergdD/lHN73Ab3ng=
+  - secure: RXhU/eVeTQ/0Hz5vjWEpe45/APj8aGk8+s6SEGxZBgoBVP+kSZFOwCk71XRF8vzhXzs2bS3PN8ZNU/AwIZB+nEMYXJ6WGCfirKjUivwL9piWwpvEBK9ghagyNg85xo8fMxh9C+qw9IFXS1JBDRIo7Ba8wYFxv1tu9CtIZPd4uNU=
+  - secure: qQlJ0V+Ah5EhTtsW0QIr+sRRllu3tpwxPEQtJM+1bhRdi0oGCj1Cuek4Yy+hPxHyJJYJKj7wufzo4TNdLB3nAjDTCi7UJ+lSitZwQCpOfdSANppVzxweiCF561ZbAxuW2oRHKnP3jtiarlITz2+4eWFic9ET+m9yOMfMPoXxOmE=
   matrix:
   - FOG_REAL=false
   - FOG_REAL=true
@@ -13,23 +13,23 @@ matrix:
     env:
     - FOG_REAL=true
     - NO_SIMPLECOV=true
-    - secure: "RgUUFWkKaUmLSBIjIXO0viwnubXmaf/FGYHYyu6+ZaRZff/iohReMiRRA7XHM1X+skwmSwqddOsbjb1x8e+jBIb7b3PH2MnEn9dfVC1B9mUZGTsgGFqDOfR5m7wrpXnXUfmYfko6/AE9DkXK1QFtCJOqRMr7wQGLlM1KUmAKTak="
-    - secure: "liGQBsU8ZwPQXuVOreTHVE3ppBHmu2HYxOYimQ3MsTmutferkgHcTO0x3uFrY/sKPbzpiiy8H0NpDKAjawwEkok8GWtdWs6+x7NkQ4pRdivAunlGPzKtYEx7rl8unhnEboXexrdxwkrdkLAh2G9bK9DN2n93qf+Y5QuKI67xwmg="
-    - secure: "oZHs8YJcoKWm+qSy34pzPK/vIJa091cTqLzJEw98XawgTmtsEpwkEwuLu9ZWxRPmc3TgxAlxrMOZn8ySZXVMmmHt3XnCIZJA6Ujy8VhOQ8KLaO5b/b9sOPcWkjV0Q9+orC8oTpA3SLIu/FktR0WGcrW7R54HckXMHdZVqakaRdM="
+    - secure: AKXowVmeuyMFzPZMoDvYF76/E1L9mbNxQ4NJXZJ2uwCOeI1Zz8t4zN9t+NuT5pq5oEJVzSiVEYxapFIqBcQ5oy6xoQs4XA2wTI/n0qx9pySjowG/vLJ12ZTEBQGZ5ppOmMpImvDvG+2gf9/P7h6fPGGChqdergdD/lHN73Ab3ng=
+    - secure: RXhU/eVeTQ/0Hz5vjWEpe45/APj8aGk8+s6SEGxZBgoBVP+kSZFOwCk71XRF8vzhXzs2bS3PN8ZNU/AwIZB+nEMYXJ6WGCfirKjUivwL9piWwpvEBK9ghagyNg85xo8fMxh9C+qw9IFXS1JBDRIo7Ba8wYFxv1tu9CtIZPd4uNU=
+    - secure: qQlJ0V+Ah5EhTtsW0QIr+sRRllu3tpwxPEQtJM+1bhRdi0oGCj1Cuek4Yy+hPxHyJJYJKj7wufzo4TNdLB3nAjDTCi7UJ+lSitZwQCpOfdSANppVzxweiCF561ZbAxuW2oRHKnP3jtiarlITz2+4eWFic9ET+m9yOMfMPoXxOmE=
   - rvm: 1.9.3
     env:
     - FOG_REAL=true
     - NO_SIMPLECOV=true
-    - secure: "RgUUFWkKaUmLSBIjIXO0viwnubXmaf/FGYHYyu6+ZaRZff/iohReMiRRA7XHM1X+skwmSwqddOsbjb1x8e+jBIb7b3PH2MnEn9dfVC1B9mUZGTsgGFqDOfR5m7wrpXnXUfmYfko6/AE9DkXK1QFtCJOqRMr7wQGLlM1KUmAKTak="
-    - secure: "liGQBsU8ZwPQXuVOreTHVE3ppBHmu2HYxOYimQ3MsTmutferkgHcTO0x3uFrY/sKPbzpiiy8H0NpDKAjawwEkok8GWtdWs6+x7NkQ4pRdivAunlGPzKtYEx7rl8unhnEboXexrdxwkrdkLAh2G9bK9DN2n93qf+Y5QuKI67xwmg="
-    - secure: "oZHs8YJcoKWm+qSy34pzPK/vIJa091cTqLzJEw98XawgTmtsEpwkEwuLu9ZWxRPmc3TgxAlxrMOZn8ySZXVMmmHt3XnCIZJA6Ujy8VhOQ8KLaO5b/b9sOPcWkjV0Q9+orC8oTpA3SLIu/FktR0WGcrW7R54HckXMHdZVqakaRdM="
+    - secure: AKXowVmeuyMFzPZMoDvYF76/E1L9mbNxQ4NJXZJ2uwCOeI1Zz8t4zN9t+NuT5pq5oEJVzSiVEYxapFIqBcQ5oy6xoQs4XA2wTI/n0qx9pySjowG/vLJ12ZTEBQGZ5ppOmMpImvDvG+2gf9/P7h6fPGGChqdergdD/lHN73Ab3ng=
+    - secure: RXhU/eVeTQ/0Hz5vjWEpe45/APj8aGk8+s6SEGxZBgoBVP+kSZFOwCk71XRF8vzhXzs2bS3PN8ZNU/AwIZB+nEMYXJ6WGCfirKjUivwL9piWwpvEBK9ghagyNg85xo8fMxh9C+qw9IFXS1JBDRIo7Ba8wYFxv1tu9CtIZPd4uNU=
+    - secure: qQlJ0V+Ah5EhTtsW0QIr+sRRllu3tpwxPEQtJM+1bhRdi0oGCj1Cuek4Yy+hPxHyJJYJKj7wufzo4TNdLB3nAjDTCi7UJ+lSitZwQCpOfdSANppVzxweiCF561ZbAxuW2oRHKnP3jtiarlITz2+4eWFic9ET+m9yOMfMPoXxOmE=
   - rvm: jruby-19mode
     env:
     - FOG_REAL=true
     - NO_SIMPLECOV=true
-    - secure: "RgUUFWkKaUmLSBIjIXO0viwnubXmaf/FGYHYyu6+ZaRZff/iohReMiRRA7XHM1X+skwmSwqddOsbjb1x8e+jBIb7b3PH2MnEn9dfVC1B9mUZGTsgGFqDOfR5m7wrpXnXUfmYfko6/AE9DkXK1QFtCJOqRMr7wQGLlM1KUmAKTak="
-    - secure: "liGQBsU8ZwPQXuVOreTHVE3ppBHmu2HYxOYimQ3MsTmutferkgHcTO0x3uFrY/sKPbzpiiy8H0NpDKAjawwEkok8GWtdWs6+x7NkQ4pRdivAunlGPzKtYEx7rl8unhnEboXexrdxwkrdkLAh2G9bK9DN2n93qf+Y5QuKI67xwmg="
-    - secure: "oZHs8YJcoKWm+qSy34pzPK/vIJa091cTqLzJEw98XawgTmtsEpwkEwuLu9ZWxRPmc3TgxAlxrMOZn8ySZXVMmmHt3XnCIZJA6Ujy8VhOQ8KLaO5b/b9sOPcWkjV0Q9+orC8oTpA3SLIu/FktR0WGcrW7R54HckXMHdZVqakaRdM="
+    - secure: AKXowVmeuyMFzPZMoDvYF76/E1L9mbNxQ4NJXZJ2uwCOeI1Zz8t4zN9t+NuT5pq5oEJVzSiVEYxapFIqBcQ5oy6xoQs4XA2wTI/n0qx9pySjowG/vLJ12ZTEBQGZ5ppOmMpImvDvG+2gf9/P7h6fPGGChqdergdD/lHN73Ab3ng=
+    - secure: RXhU/eVeTQ/0Hz5vjWEpe45/APj8aGk8+s6SEGxZBgoBVP+kSZFOwCk71XRF8vzhXzs2bS3PN8ZNU/AwIZB+nEMYXJ6WGCfirKjUivwL9piWwpvEBK9ghagyNg85xo8fMxh9C+qw9IFXS1JBDRIo7Ba8wYFxv1tu9CtIZPd4uNU=
+    - secure: qQlJ0V+Ah5EhTtsW0QIr+sRRllu3tpwxPEQtJM+1bhRdi0oGCj1Cuek4Yy+hPxHyJJYJKj7wufzo4TNdLB3nAjDTCi7UJ+lSitZwQCpOfdSANppVzxweiCF561ZbAxuW2oRHKnP3jtiarlITz2+4eWFic9ET+m9yOMfMPoXxOmE=
 branches:
   only:
   - master
