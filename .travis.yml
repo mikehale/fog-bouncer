@@ -1,44 +1,45 @@
 env:
   global:
-  - NO_SIMPLECOV=true
-  - secure: "RSihaft8L47vmxJjykOrefzKVT1V/PGP+8bQ/RiDRnj1JbD5F1AhD8UciXpRv8tHHtjb3l0L8/OyaRGM8tpaCb9cFSskGHOaPOX/HxNCoMUHgpA9J1ndJWK9+bzRlGz5unGBV/XvN/LTB8pE9EiiO2Cba0RRQfwBsuyxgRde/dk="
-  - secure: "I++xCu5LrrVoKWINKqMuFMLi2YS0IcxLKdX6Vrf/myt8XlNBn1AwrTZ9LTjmINxSFq3O9NHl7tfM58eQ1P4s4IlepuX8yOajsLIkhOe+B1UwjUhs2340Mwjdv/k72szs/ssw79YAUwtcgLmJerTs/aUAdhzTpyMXRk67DTeBgJU="
-  - secure: "EyEJlhHYdmHWcpIDDMJG/zaGB6Hp9ovKovk27NNoVZHj1teplyrND6+g6TtJ7EmWw8z0tgDr9se69GpkjJPLPWV4hn8ldg+vqT2q2imh0KAG20BoJY5jAswsFPLk2sqs7CZnBAKrt9QQ/0oygjB6/IQceBnM/uf7NduX4AHw5MI="
+    - NO_SIMPLECOV=true
+    - secure: "RSihaft8L47vmxJjykOrefzKVT1V/PGP+8bQ/RiDRnj1JbD5F1AhD8UciXpRv8tHHtjb3l0L8/OyaRGM8tpaCb9cFSskGHOaPOX/HxNCoMUHgpA9J1ndJWK9+bzRlGz5unGBV/XvN/LTB8pE9EiiO2Cba0RRQfwBsuyxgRde/dk="
+    - secure: "I++xCu5LrrVoKWINKqMuFMLi2YS0IcxLKdX6Vrf/myt8XlNBn1AwrTZ9LTjmINxSFq3O9NHl7tfM58eQ1P4s4IlepuX8yOajsLIkhOe+B1UwjUhs2340Mwjdv/k72szs/ssw79YAUwtcgLmJerTs/aUAdhzTpyMXRk67DTeBgJU="
+    - secure: "EyEJlhHYdmHWcpIDDMJG/zaGB6Hp9ovKovk27NNoVZHj1teplyrND6+g6TtJ7EmWw8z0tgDr9se69GpkjJPLPWV4hn8ldg+vqT2q2imh0KAG20BoJY5jAswsFPLk2sqs7CZnBAKrt9QQ/0oygjB6/IQceBnM/uf7NduX4AHw5MI="
   matrix:
-  - FOG_REAL=false
-  - FOG_REAL=true
+    - FOG_REAL=false
+    - FOG_REAL=true
+
 matrix:
   exclude:
-  - rvm: 1.9.2
-    env:
-    - FOG_REAL=true
-    - NO_SIMPLECOV=true
-    - secure: "RSihaft8L47vmxJjykOrefzKVT1V/PGP+8bQ/RiDRnj1JbD5F1AhD8UciXpRv8tHHtjb3l0L8/OyaRGM8tpaCb9cFSskGHOaPOX/HxNCoMUHgpA9J1ndJWK9+bzRlGz5unGBV/XvN/LTB8pE9EiiO2Cba0RRQfwBsuyxgRde/dk="
-    - secure: "I++xCu5LrrVoKWINKqMuFMLi2YS0IcxLKdX6Vrf/myt8XlNBn1AwrTZ9LTjmINxSFq3O9NHl7tfM58eQ1P4s4IlepuX8yOajsLIkhOe+B1UwjUhs2340Mwjdv/k72szs/ssw79YAUwtcgLmJerTs/aUAdhzTpyMXRk67DTeBgJU="
-    - secure: "EyEJlhHYdmHWcpIDDMJG/zaGB6Hp9ovKovk27NNoVZHj1teplyrND6+g6TtJ7EmWw8z0tgDr9se69GpkjJPLPWV4hn8ldg+vqT2q2imh0KAG20BoJY5jAswsFPLk2sqs7CZnBAKrt9QQ/0oygjB6/IQceBnM/uf7NduX4AHw5MI="
-  - rvm: 1.9.3
-    env:
-    - FOG_REAL=true
-    - NO_SIMPLECOV=true
-    - secure: "RSihaft8L47vmxJjykOrefzKVT1V/PGP+8bQ/RiDRnj1JbD5F1AhD8UciXpRv8tHHtjb3l0L8/OyaRGM8tpaCb9cFSskGHOaPOX/HxNCoMUHgpA9J1ndJWK9+bzRlGz5unGBV/XvN/LTB8pE9EiiO2Cba0RRQfwBsuyxgRde/dk="
-    - secure: "I++xCu5LrrVoKWINKqMuFMLi2YS0IcxLKdX6Vrf/myt8XlNBn1AwrTZ9LTjmINxSFq3O9NHl7tfM58eQ1P4s4IlepuX8yOajsLIkhOe+B1UwjUhs2340Mwjdv/k72szs/ssw79YAUwtcgLmJerTs/aUAdhzTpyMXRk67DTeBgJU="
-    - secure: "EyEJlhHYdmHWcpIDDMJG/zaGB6Hp9ovKovk27NNoVZHj1teplyrND6+g6TtJ7EmWw8z0tgDr9se69GpkjJPLPWV4hn8ldg+vqT2q2imh0KAG20BoJY5jAswsFPLk2sqs7CZnBAKrt9QQ/0oygjB6/IQceBnM/uf7NduX4AHw5MI="
-  - rvm: jruby-19mode
-    env:
-    - FOG_REAL=true
-    - NO_SIMPLECOV=true
-    - secure: "RSihaft8L47vmxJjykOrefzKVT1V/PGP+8bQ/RiDRnj1JbD5F1AhD8UciXpRv8tHHtjb3l0L8/OyaRGM8tpaCb9cFSskGHOaPOX/HxNCoMUHgpA9J1ndJWK9+bzRlGz5unGBV/XvN/LTB8pE9EiiO2Cba0RRQfwBsuyxgRde/dk="
-    - secure: "I++xCu5LrrVoKWINKqMuFMLi2YS0IcxLKdX6Vrf/myt8XlNBn1AwrTZ9LTjmINxSFq3O9NHl7tfM58eQ1P4s4IlepuX8yOajsLIkhOe+B1UwjUhs2340Mwjdv/k72szs/ssw79YAUwtcgLmJerTs/aUAdhzTpyMXRk67DTeBgJU="
-    - secure: "EyEJlhHYdmHWcpIDDMJG/zaGB6Hp9ovKovk27NNoVZHj1teplyrND6+g6TtJ7EmWw8z0tgDr9se69GpkjJPLPWV4hn8ldg+vqT2q2imh0KAG20BoJY5jAswsFPLk2sqs7CZnBAKrt9QQ/0oygjB6/IQceBnM/uf7NduX4AHw5MI="
+    - rvm: 1.9.2
+      env:
+        - FOG_REAL=true
+        - NO_SIMPLECOV=true
+        - secure: "RSihaft8L47vmxJjykOrefzKVT1V/PGP+8bQ/RiDRnj1JbD5F1AhD8UciXpRv8tHHtjb3l0L8/OyaRGM8tpaCb9cFSskGHOaPOX/HxNCoMUHgpA9J1ndJWK9+bzRlGz5unGBV/XvN/LTB8pE9EiiO2Cba0RRQfwBsuyxgRde/dk="
+        - secure: "I++xCu5LrrVoKWINKqMuFMLi2YS0IcxLKdX6Vrf/myt8XlNBn1AwrTZ9LTjmINxSFq3O9NHl7tfM58eQ1P4s4IlepuX8yOajsLIkhOe+B1UwjUhs2340Mwjdv/k72szs/ssw79YAUwtcgLmJerTs/aUAdhzTpyMXRk67DTeBgJU="
+        - secure: "EyEJlhHYdmHWcpIDDMJG/zaGB6Hp9ovKovk27NNoVZHj1teplyrND6+g6TtJ7EmWw8z0tgDr9se69GpkjJPLPWV4hn8ldg+vqT2q2imh0KAG20BoJY5jAswsFPLk2sqs7CZnBAKrt9QQ/0oygjB6/IQceBnM/uf7NduX4AHw5MI="
+    - rvm: 1.9.3
+      env:
+        - FOG_REAL=true
+        - NO_SIMPLECOV=true
+        - secure: "RSihaft8L47vmxJjykOrefzKVT1V/PGP+8bQ/RiDRnj1JbD5F1AhD8UciXpRv8tHHtjb3l0L8/OyaRGM8tpaCb9cFSskGHOaPOX/HxNCoMUHgpA9J1ndJWK9+bzRlGz5unGBV/XvN/LTB8pE9EiiO2Cba0RRQfwBsuyxgRde/dk="
+        - secure: "I++xCu5LrrVoKWINKqMuFMLi2YS0IcxLKdX6Vrf/myt8XlNBn1AwrTZ9LTjmINxSFq3O9NHl7tfM58eQ1P4s4IlepuX8yOajsLIkhOe+B1UwjUhs2340Mwjdv/k72szs/ssw79YAUwtcgLmJerTs/aUAdhzTpyMXRk67DTeBgJU="
+        - secure: "EyEJlhHYdmHWcpIDDMJG/zaGB6Hp9ovKovk27NNoVZHj1teplyrND6+g6TtJ7EmWw8z0tgDr9se69GpkjJPLPWV4hn8ldg+vqT2q2imh0KAG20BoJY5jAswsFPLk2sqs7CZnBAKrt9QQ/0oygjB6/IQceBnM/uf7NduX4AHw5MI="
+    - rvm: jruby-19mode
+      env:
+        - FOG_REAL=true
+        - NO_SIMPLECOV=true
+        - secure: "RSihaft8L47vmxJjykOrefzKVT1V/PGP+8bQ/RiDRnj1JbD5F1AhD8UciXpRv8tHHtjb3l0L8/OyaRGM8tpaCb9cFSskGHOaPOX/HxNCoMUHgpA9J1ndJWK9+bzRlGz5unGBV/XvN/LTB8pE9EiiO2Cba0RRQfwBsuyxgRde/dk="
+        - secure: "I++xCu5LrrVoKWINKqMuFMLi2YS0IcxLKdX6Vrf/myt8XlNBn1AwrTZ9LTjmINxSFq3O9NHl7tfM58eQ1P4s4IlepuX8yOajsLIkhOe+B1UwjUhs2340Mwjdv/k72szs/ssw79YAUwtcgLmJerTs/aUAdhzTpyMXRk67DTeBgJU="
+        - secure: "EyEJlhHYdmHWcpIDDMJG/zaGB6Hp9ovKovk27NNoVZHj1teplyrND6+g6TtJ7EmWw8z0tgDr9se69GpkjJPLPWV4hn8ldg+vqT2q2imh0KAG20BoJY5jAswsFPLk2sqs7CZnBAKrt9QQ/0oygjB6/IQceBnM/uf7NduX4AHw5MI="
 branches:
   only:
-  - master
+    - master
 language: ruby
 cache: bundler
 rvm:
-- 2.1.1
-- 1.9.2
-- 1.9.3
-- jruby-19mode
+  - 2.1.1
+  - 1.9.2
+  - 1.9.3
+  - jruby-19mode
 script: bundle exec rake test --trace
 
