@@ -29,6 +29,12 @@ end
 
 Fog.mock! unless ENV['FOG_REAL'] && ["1", "true"].include?(ENV['FOG_REAL'])
 
+class MiniTest::Spec
+  before :each do
+    Fog::Bouncer.pretend = false
+  end
+end
+
 MiniTest::Unit.after_tests do
   Fog::Bouncer.doorlists.each do |name, doorlist|
     doorlist.groups.each do |group|
